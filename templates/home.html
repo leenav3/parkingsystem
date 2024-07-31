@@ -1,0 +1,17 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+    %}
+    <h1>Available Parking Spots</h1>
+    <ul>
+        {% for spot in available_spots %}
+            <li>Spot ID: {{ spot }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Book a Parking Spot</h2>
+    <form action="/book_spot" method="post">
+        <label for="spot_id">Spot ID:</label>
+        <input type="text" id="spot_id" name="spot_id" required><br><br>
+        <label for="date_time">Date and Time:</label>
+        <input type="datetime-local" id="date_time" name="date_time" required><br><br>
+        <input type="submit" value="Book Spot">
+    </form>
+    {% endblock %}
